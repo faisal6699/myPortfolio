@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import "primeicons/primeicons.css";
+
+$primaryColor: #101820;
+$highlightColor: #FEE715;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'sans-serif';
+}
+
+body {
+  background: $primaryColor;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+//.header, .navbar a, .home, .home-content, .home-content h3, .home-content h1, .home-content p, .home-img img, .social-media a, .btn {
+//  opacity: 0;
+//}

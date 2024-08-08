@@ -1,0 +1,64 @@
+@import "../../styles";
+
+.experience {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 10%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.experience-content {
+  width: 800px;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.experience-content h1 {
+  font-size: 36px;
+  font-weight: 700;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.7s;
+  color: $highlightColor;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  ::ng-deep .ngx-pagination {
+    a {
+      color: #e0e0e0;
+    }
+
+    li {
+      margin: 15px;
+      font-size: 16px;
+    }
+
+    a:hover, button:hover {
+      color: $primaryColor;
+    }
+
+    .current {
+      background: $highlightColor;
+      span {
+        color: $primaryColor !important;
+      }
+    }
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  margin-bottom: 10px;
+}

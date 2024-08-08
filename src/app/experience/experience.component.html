@@ -1,0 +1,16 @@
+<div class="experience" #experienceElement>
+  <div class="experience-content">
+    <h1>Work Experience</h1>
+    <hr />
+    <div class="experience-grid">
+      @for (experience of experiences | paginate: { itemsPerPage: 1, currentPage: currentPage }; track experience.name) {
+        <app-item
+          [experienceItem]="experience"
+        />
+      }
+      <div class="pagination">
+        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

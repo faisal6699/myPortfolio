@@ -1,0 +1,16 @@
+<div class="experience-item">
+  <div class="experience-item-header">
+    <h3>{{experienceItem?.name}} (<a [href]=experienceItem?.companyUrl>{{experienceItem?.company}}</a>)</h3>
+    <h3>{{experienceItem?.type}}</h3>
+    <h3>{{experienceItem?.duration}}</h3>
+  </div>
+  <ul>
+    @for (item of experienceItem?.items; track experienceItem?.items) {
+      <li>
+          <span>
+            {{item}}
+          </span>
+      </li>
+    }
+  </ul>
+</div>
