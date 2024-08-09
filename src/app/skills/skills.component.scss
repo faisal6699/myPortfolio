@@ -66,3 +66,13 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 768px){
+  .skill-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}

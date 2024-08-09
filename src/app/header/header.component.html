@@ -1,43 +1,32 @@
 <header class="header">
-  <a href="javascript:;" (click)="changeView('home', 0)" class="logo">Portfolio.</a>
-  @if (currentWindowWidth >= 1283) {
-    <nav class="navbar">
-      <a [class.active]="activeItemName === 'home'" href="javascript:;" style="--i:1;" (click)="changeView('home', 0)">Home</a>
-      <a [class.active]="activeItemName === 'experience'" href="javascript:;" style="--i:2;" (click)="changeView('experience', 1)">Experience</a>
-      <a [class.active]="activeItemName === 'skill'" href="javascript:;" style="--i:3;" (click)="changeView('skill', 2)">Skills</a>
-      <a [class.active]="activeItemName === 'project'" href="javascript:;" style="--i:4;" (click)="changeView('project', 3)">Projects</a>
-      <a [class.active]="activeItemName === 'education'" href="javascript:;" style="--i:5;" (click)="changeView('education', 4)">Education & Contributions</a>
-      <a href="https://wa.me/+8801670706699?text=Hello, I found your portfolio and would like to discuss an opportunity." target="_blank" class="whatsapp-button">
-        <i class="pi pi-whatsapp" style="margin-right: 10px"></i>Give a message
-      </a>
-    </nav>
-  } @else {
-    <nav role="navigation">
-      <button type="button" class="drawer-toggle drawer-hamburger" >
-        <i class="pi pi-bars"></i>
-      </button>
-
-      <div class="drawer-overlay">
-
+  <nav class="navbar">
+    @if(isDrawerOpen || currentWindowWidth <= 1120) {
+      <a href="javascript:;" class="menu-toggle" (click)="toggleDrawer()">☰</a>
+      <div class="drawer" [ngClass]="{ 'open': isDrawerOpen }">
+        <div class="drawer-header">
+          <button class="close-btn" (click)="toggleDrawer()">✖</button>
+        </div>
+        <a [class.active]="activeItemName === 'home'" href="javascript:;" style="--i:1;" (click)="changeView('home', 0)">Home</a>
+        <a [class.active]="activeItemName === 'experience'" href="javascript:;" style="--i:2;" (click)="changeView('experience', 1)">Experience</a>
+        <a [class.active]="activeItemName === 'skill'" href="javascript:;" style="--i:3;" (click)="changeView('skill', 2)">Skills</a>
+        <a [class.active]="activeItemName === 'project'" href="javascript:;" style="--i:4;" (click)="changeView('project', 3)">Projects</a>
+        <a [class.active]="activeItemName === 'education'" href="javascript:;" style="--i:5;" (click)="changeView('education', 4)">Education & Contributions</a>
       </div>
-    </nav>
-  }
-</header>
-
-<header class="drawer-navbar drawer-navbar--fixed" role="banner">
-  <div class="drawer-container">
-    <div class="drawer-navbar-header">
-      <a class="drawer-brand" href="#">Drawer</a>
-      <button type="button" class="drawer-toggle drawer-hamburger">
-        <span class="sr-only">toggle navigation</span>
-        <span class="drawer-hamburger-icon"></span>
-      </button>
-    </div>
-    <nav class="drawer-nav" >
-      <ul class="drawer-menu drawer-menu--right">
-        <li><a class="drawer-menu-item" href="#">Nav1</a></li>
-        <li><a class="drawer-menu-item" href="#">Nav2</a></li>
-      </ul>
-    </nav>
-  </div>
+    } @else {
+      <div class="menu-items">
+        <a [class.active]="activeItemName === 'home'" href="javascript:;" style="--i:1;" (click)="changeView('home', 0)">Home</a>
+        <a [class.active]="activeItemName === 'experience'" href="javascript:;" style="--i:2;"
+           (click)="changeView('experience', 1)">Experience</a>
+        <a [class.active]="activeItemName === 'skill'" href="javascript:;" style="--i:3;" (click)="changeView('skill', 2)">Skills</a>
+        <a [class.active]="activeItemName === 'project'" href="javascript:;" style="--i:4;"
+           (click)="changeView('project', 3)">Projects</a>
+        <a [class.active]="activeItemName === 'education'" href="javascript:;" style="--i:5;"
+           (click)="changeView('education', 4)">Education & Contributions</a>
+      </div>
+    }
+  </nav>
+  <a href="https://wa.me/+8801670706699?text=Hello, I found your portfolio and would like to discuss an opportunity."
+     target="_blank" class="whatsapp-button">
+    <i class="pi pi-whatsapp" style="margin-right: 10px"></i>Give a message
+  </a>
 </header>

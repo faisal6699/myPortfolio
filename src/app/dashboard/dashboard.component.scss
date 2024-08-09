@@ -1,3 +1,4 @@
+@import "../../styles";
 .home {
   position: relative;
   width: 100%;
@@ -45,6 +46,9 @@
 
 .home-img img {
   max-width: 450px;
+  max-height: 350px;
+  border-radius: 10px;
+  border: 2px solid $highlightColor;
   animation: fadeIn 1s ease forwards, zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
   animation-delay: 1.9s, 3s;
 }
@@ -133,5 +137,22 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 1320px){
+  .home-img img {
+    max-width: 350px;
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .home-content {
+    max-width: 100%;
+  }
+  .home-img img {
+    max-width: 300px;
+    max-height: 250px;
   }
 }

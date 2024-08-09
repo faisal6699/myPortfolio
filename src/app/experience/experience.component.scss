@@ -62,3 +62,9 @@ hr {
   height: 1px;
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 768px){
+  .experience-content {
+    max-width: 100%;
+  }
+}
