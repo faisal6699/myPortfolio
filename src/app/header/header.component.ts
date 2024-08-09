@@ -9,11 +9,14 @@ import {
   ViewChildren
 } from '@angular/core';
 import {AppService} from "../app.service";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+    imports: [
+        NgClass
+    ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -21,6 +24,7 @@ export class HeaderComponent implements OnInit {
   activeItemName: string = 'home';
   selectedElement!: ElementRef;
   currentWindowWidth!: number;
+  isDrawerOpen: boolean = false;
   sections: { id: string, top: number }[] = [];
   constructor(private appService: AppService) {
   }
@@ -44,6 +48,10 @@ export class HeaderComponent implements OnInit {
     document.getElementById('home')?.classList.add('active');
   }
 
+  toggleDrawer() {
+    this.isDrawerOpen = !this.isDrawerOpen;
+  }
+
   changeView(name: string, index: number) {
     this.selectedElement = this.appService.getComponentRef(index);
     console.log(this.selectedElement)
@@ -54,7 +62,9 @@ export class HeaderComponent implements OnInit {
 
   updateSectionPositions() {
     this.currentWindowWidth = window.innerWidth;
-    console.log(this.currentWindowWidth)
+    if (this.currentWindowWidth > 1120) {
+      this.isDrawerOpen = false;
+    }
     this.sections = [];
     const sectionIds = ['home', 'experience', 'skill', 'project', 'education'];
     let counter: number = 0;
@@ -66,6 +76,10 @@ export class HeaderComponent implements OnInit {
   }
 
   updateActiveItem() {
+    this.currentWindowWidth = window.innerWidth;
+    if (this.currentWindowWidth > 1120) {
+      this.isDrawerOpen = false;
+    }
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
     let activeSection = this.sections[0].id;
 

@@ -1,3 +1,4 @@
+@import "../../styles";
 .header {
   position: fixed;
   top: 0;
@@ -27,10 +28,13 @@
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  margin-left: 35px;
   transition: color 0.4s;
   animation: fadeInUp 1s ease forwards;
   animation-delay: calc(0.2s * var(--i) + 0.5s);
+}
+
+.navbar .menu-items a:not(:first-child) {
+  margin-left: 35px;
 }
 
 .whatsapp-button {
@@ -58,4 +62,93 @@
 .navbar a:hover,
 .navbar a.active {
   color: #FEE715;
+}
+
+// drawer
+
+.menu-toggle {
+  cursor: pointer;
+  font-size: 24px;
+  display: none;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: $primaryColor;
+  padding-top: 60px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1100;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.drawer a {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.drawer a:hover,
+.drawer a.active {
+  background-color: #555;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1050;
+  cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+  padding: 20px;
+}
+
+.drawer-open .main-content {
+  margin-left: 250px; /* Match the width of the drawer */
+}
+
+@media (max-width: 1120px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .drawer {
+    transform: translateX(-100%);
+  }
+
+  .drawer.open {
+    transform: translateX(0);
+  }
 }

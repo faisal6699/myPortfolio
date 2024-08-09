@@ -1,3 +1,4 @@
+@import "../../styles";
 .home {
   position: relative;
   width: 100%;
@@ -45,8 +46,11 @@
 
 .home-img img {
   max-width: 450px;
+  max-height: 350px;
+  border-radius: 10px;
+  border: 2px solid $highlightColor;
   animation: fadeIn 1s ease forwards, zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
-  animation-delay: 1.9s, 3s;
+  animation-delay: 1.9s, 3s, 0s;
 }
 
 .social-media {
@@ -104,7 +108,27 @@
   }
 }
 
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeInUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInUp {
   0% {
     transform: translateY(20px);
     opacity: 0;
@@ -124,6 +148,15 @@
   }
 }
 
+@-webkit-keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 @keyframes floatImage{
   0% {
     transform: translateY(0);
@@ -133,5 +166,55 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes floatImage{
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-24px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 1320px){
+  .home-img img {
+    max-width: 350px;
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .home-content {
+    max-width: 100%;
+  }
+  .home-img img {
+    max-width: 300px;
+    max-height: 250px;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .home {
+    min-height: 90vh;
+  }
+
+  .home-content {
+    h1 {
+      font-size: 16px;
+    }
+    h3 {
+      font-size: 12px;
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+  .home-img {
+    display: none;
   }
 }

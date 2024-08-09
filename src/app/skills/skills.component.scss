@@ -66,3 +66,33 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 1024px){
+  .skill-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .skill {
+    min-height: 90vh;
+    h1 {
+      font-size: 16px;
+    }
+  }
+
+  .skill-content {
+    &-item img {
+      height: 50px;
+      width: 70px;
+    }
+
+    h3 {
+      font-size: 12px;
+    }
+  }
+}

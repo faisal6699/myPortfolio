@@ -68,3 +68,15 @@ $borderColor: #e0e0e0;
     transform: translateY(0);
   }
 }
+
+@media screen and (max-width: 480px){
+  .experience-item {
+    &-header h3 {
+      font-size: 12px !important;
+    }
+
+    li {
+      font-size: 10px !important;
+    }
+  }
+}

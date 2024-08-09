@@ -62,3 +62,30 @@ hr {
   height: 1px;
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 768px){
+  .experience-content {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .experience {
+    min-height: 90vh;
+  }
+
+  .experience-content {
+    h1 {
+      font-size: 16px;
+    }
+  }
+
+  .pagination {
+    padding: 5px !important;
+    ::ng-deep .ngx-pagination {
+      li {
+        margin: 0 !important;
+      }
+    }
+  }
+}
