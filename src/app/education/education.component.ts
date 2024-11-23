@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {AppService} from "../app.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-education',
@@ -11,7 +12,8 @@ import {AppService} from "../app.service";
 export class EducationComponent implements AfterViewInit {
   @ViewChild('educationElement') educationElement!: ElementRef;
 
-  constructor(private appService: AppService) {
+  constructor(private appService: AppService,private title: Title) {
+    this.title.setTitle('Faisal Ahmed Ador | Education & Contributions');
   }
 
   ngAfterViewInit() {

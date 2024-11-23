@@ -4,6 +4,7 @@ import {ItemComponent} from "./item/item.component";
 import {Experience} from "../domains/experience";
 import {AppService} from "../app.service";
 import {NgxPaginationModule} from "ngx-pagination";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-experience',
@@ -23,48 +24,65 @@ export class ExperienceComponent implements AfterViewInit {
 
   experiences: Experience[] = [
     {
-      name: "Software Engineer",
+      name: 'Software Engineer',
+      company: 'Square Health (Full-time)',
+      duration: 'June 2021 - Present',
       items: [
-        "Developed an admin platform using Angular, ensuring standalone components and best practices.",
-        "Overhauled the appointment system, leading end-to-end development from business requirement analysis to complex UI/UX implementation, API integration, and business logic for enhanced functionality",
-        "Developed a socket server as an R&D project for real-time communication between doctors and patients using Nodejs, Socket.io, Webpack and TypeScript.",
-        "Spearheaded the Telemedicine System, enabling remote appointments and video consultations.Orchestrated Amazon Chime integration for video consultations and managed intricate business logic.",
-        "Engineered a Tutorial Application using Next.js, facilitating doctors to access feature-based tutorials. Implemented SSR and SSG, combining frontend advancements with backend development using Spring Boot."
+        'Page Load Optimization: Optimized a complex prescription platform’s frontend application load time by\n' +
+        '50–60% by caching APIs to IndexedDB (using Dexie.js), implementing NGRX for state management, and\n' +
+        'optimizing API calls.',
+        'Server-Side Rendering (SSR): Guided junior developers on implementing SSR in Angular 18 applications in an\n' +
+        'optimized way.',
+        'Micro-Frontend Architecture: Converted multiple separate repositories of a same ecosystem into monorepo\n' +
+        'using NX, reducing repetitive code by 10–20%.',
+        'Dynamic PDF Converter: Designed a dynamic HTML-to-PDF converter using Node.js, Puppeteer, and\n' +
+        'Handlebars, reducing PDF configuration time by 90%.',
+        'Containerization: Containerized a complex PDF project using Docker Compose, ensuring Chrome engine\n' +
+        'compatibility in a monorepo setup.'
       ],
-      type: "Full-time",
-      duration: "July 2021 - Present",
-      company: "Square Health Ltd.",
-      companyUrl: "https://squareHealth.com.bd"
+      type: '',
+      companyUrl: 'jotno.net'
     },
     {
-      name: "Angular Developer",
+      name: 'Frontend Developer (Angular)',
+      company: 'GetMeHired (Part-time)',
+      duration: 'January 2021 - November 2021',
       items: [
-        "R&D on new development and make new feature",
-        "Make custom UI for different features",
-        "Implement complex charts"
+        'ChatGPT Integration: Implemented ChatGPT functionality and designed a prompt engineering feature.',
+        'Data Visualization: Integrated MongoDB Charts with authentication features.',
       ],
-      type: "Part-time",
-      duration: "Jan 2023 - Nov 2023",
-      company: "GetMeHired Ltd.",
-      companyUrl: "https://getMeHired.co"
+      type: '',
+      companyUrl: ''
     },
     {
-      name: "React Developer",
+      name: 'Frontend Developer (React)',
+      company: 'Decode-lab (Full-time)',
+      duration: 'January 2021 - May 2021',
       items: [
-        "Collaborated on API-driven e-commerce site with backend team",
-        "Developed functional applications using React and Redux",
-        "Reviewed and resolved application functionality issues"
+        'E-commerce Collaboration: Collaborated with the backend team to build an API-driven e-commerce site.',
       ],
-      type: "Full-time",
-      duration: "Jan 2021 - Jun 2021",
-      company: "DecodeLab Ltd.",
-      companyUrl: "https://www.decode-lab.com"
-    }
+      type: '',
+      companyUrl: ''
+    },
   ];
 
   @ViewChild('experienceElement') experienceElement!: ElementRef;
 
-  constructor(private appService: AppService) {
+  constructor(private appService: AppService,
+              private meta: Meta, private title: Title) {
+  }
+
+  ngOnInit() {
+    this.title.setTitle('Work Experience | Faisal Ahmed Ador - Full Stack Engineer');
+    this.meta.addTags([
+      { name: 'description', content: 'Explore Faisal Ahmed Ador\'s professional journey, showcasing experience in Angular, React, NestJS, Docker, and more. Learn about his impact in building scalable applications and optimizing performance.' },
+      { name: 'keywords', content: 'Faisal Ahmed Ador, Work Experience, Software Engineer, Angular, React, TypeScript, NestJS, Docker, Full Stack Engineer, Frontend Developer, Backend Developer' },
+      { name: 'author', content: 'Faisal Ahmed Ador' },
+      { property: 'og:title', content: 'Work Experience | Faisal Ahmed Ador - Full Stack Engineer' },
+      { property: 'og:description', content: 'Discover Faisal Ahmed Ador\'s career milestones and technical expertise in modern web development technologies like Angular, React, and NestJS.' },
+      { property: 'og:url', content: 'https://faisalahmedador.github.io/experiences' },
+      { property: 'og:type', content: 'website' }
+    ]);
   }
 
   ngAfterViewInit() {

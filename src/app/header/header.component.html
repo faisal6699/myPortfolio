@@ -6,27 +6,27 @@
         <div class="drawer-header">
           <button class="close-btn" (click)="toggleDrawer()">✖</button>
         </div>
-        <a [class.active]="activeItemName === 'home'" href="javascript:;" style="--i:1;" (click)="changeView('home', 0)">Home</a>
-        <a [class.active]="activeItemName === 'experience'" href="javascript:;" style="--i:2;" (click)="changeView('experience', 1)">Experience</a>
-        <a [class.active]="activeItemName === 'skill'" href="javascript:;" style="--i:3;" (click)="changeView('skill', 2)">Skills</a>
-        <a [class.active]="activeItemName === 'project'" href="javascript:;" style="--i:4;" (click)="changeView('project', 3)">Projects</a>
-        <a [class.active]="activeItemName === 'education'" href="javascript:;" style="--i:5;" (click)="changeView('education', 4)">Education & Contributions</a>
+        <a [class.active]="activeItemName === 'home'" routerLink="home" style="--i:1;" (click)="this.activeItemName = 'home'">Home</a>
+        <a [class.active]="activeItemName === 'experiences'" routerLink="experiences" style="--i:2;" (click)="this.activeItemName = 'experiences'">Experience</a>
+        <a [class.active]="activeItemName === 'skills'" routerLink="skills" style="--i:3;" (click)="this.activeItemName = 'skills'">Skills & Achievements</a>
+        <a [class.active]="activeItemName === 'blogs'" routerLink="blogs" style="--i:4;" (click)="this.activeItemName = 'blogs'">Technical Blogs</a>
+        <a [class.active]="activeItemName === 'education'" routerLink="education" style="--i:5;" (click)="this.activeItemName = 'education'">Education & Contributions</a>
       </div>
     } @else {
       <div class="menu-items">
-        <a [class.active]="activeItemName === 'home'" href="javascript:;" style="--i:1;" (click)="changeView('home', 0)">Home</a>
-        <a [class.active]="activeItemName === 'experience'" href="javascript:;" style="--i:2;"
-           (click)="changeView('experience', 1)">Experience</a>
-        <a [class.active]="activeItemName === 'skill'" href="javascript:;" style="--i:3;" (click)="changeView('skill', 2)">Skills</a>
-        <a [class.active]="activeItemName === 'project'" href="javascript:;" style="--i:4;"
-           (click)="changeView('project', 3)">Projects</a>
-        <a [class.active]="activeItemName === 'education'" href="javascript:;" style="--i:5;"
-           (click)="changeView('education', 4)">Education & Contributions</a>
+        <a [class.active]="activeItemName === 'home'" routerLink="home" style="--i:1;" (click)="this.activeItemName = 'home'">Home</a>
+        <a [class.active]="activeItemName === 'experiences'" routerLink="experiences" style="--i:2;"
+           (click)="this.activeItemName = 'experiences'">Experience</a>
+        <a [class.active]="activeItemName === 'skills'" routerLink="skills" style="--i:3;" (click)="this.activeItemName = 'skills'">Skills & Achievements</a>
+        <a [class.active]="activeItemName === 'blogs'" routerLink="blogs" style="--i:4;"
+           (click)="this.activeItemName = 'blogs'">Technical Blogs</a>
+        <a [class.active]="activeItemName === 'education'" routerLink="education" style="--i:5;"
+           (click)="this.activeItemName = 'education'">Education & Contributions</a>
       </div>
     }
   </nav>
   <a href="https://wa.me/+8801670706699?text=Hello, I found your portfolio and would like to discuss an opportunity."
      target="_blank" class="whatsapp-button">
-    <i class="pi pi-whatsapp" style="margin-right: 10px"></i>Give a message
+    <i class="pi pi-whatsapp" style="margin-right: 10px"></i>Get in touch
   </a>
 </header>

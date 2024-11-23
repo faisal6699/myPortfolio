@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {concat, concatMap, delay, from, ignoreElements, interval, map, of, repeat, take} from "rxjs";
+import {isPlatformServer} from "@angular/common";
 
 interface TypeParams {
   word: string;
@@ -11,6 +12,8 @@ interface TypeParams {
   providedIn: 'root'
 })
 export class TypeWriterService {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  }
   private type({ word, speed, backwards = false }: TypeParams) {
     return interval(speed).pipe(
       map((x) =>
@@ -33,9 +36,13 @@ export class TypeWriterService {
   }
 
   getTypewriterEffect(titles: string[]) {
-    return from(titles).pipe(
-      concatMap((title) => this.typeEffect(title)),
-      repeat()
-    );
+    if (isPlatformServer(this.platformId)) {
+      return of(titles.join(' | ')); // Combine all titles for SSR
+    } else {
+      return from(titles).pipe(
+        concatMap((title) => this.typeEffect(title)),
+        repeat()
+      );
+    }
   }
 }

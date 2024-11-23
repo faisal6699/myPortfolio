@@ -1,19 +1,29 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {HeaderComponent} from "./header/header.component";
-import {DashboardComponent} from "./dashboard/dashboard.component";
-import {ExperienceComponent} from "./experience/experience.component";
-import {SkillsComponent} from "./skills/skills.component";
-import {ProjectsComponent} from "./projects/projects.component";
-import {EducationComponent} from "./education/education.component";
+import {Meta, Title} from "@angular/platform-browser";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, DashboardComponent, ExperienceComponent, SkillsComponent, ProjectsComponent, EducationComponent],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'my-portfolio';
+
+  constructor(private meta: Meta, private title: Title,) {
+
+  }
+
+  ngOnInit() {
+    this.title.setTitle('Faisal Ahmed Ador | Full Stack Engineer Portfolio')
+    this.meta.addTags([
+      {
+        name: 'description',
+        content: 'Explore Faisal Ahmed Ador\'s portfolio, an experienced Full Stack Engineer skilled in Angular, React, TypeScript, NestJS, and more. Discover his projects, blogs, and achievements.'
+      },
+      {name: 'author', content: 'Faisal Ahmed Ador'},])
+  }
 }

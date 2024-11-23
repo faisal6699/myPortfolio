@@ -5,7 +5,7 @@
     <h3>{{experienceItem?.duration}}</h3>
   </div>
   <ul>
-    @for (item of experienceItem?.items; track experienceItem?.items) {
+    @for (item of experienceItem?.items; track item) {
       <li>
           <span>
             {{item}}

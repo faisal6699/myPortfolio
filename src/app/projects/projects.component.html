@@ -1,22 +1,24 @@
 <div class="project" #projectElement>
-  <h1>Project</h1>
-  <div class="project-content">
-    <a class="project-content-item" href="https://org.jotno.net/">
-      <img src="assets/Jotno-doctor.png" alt="angular">
-      <h3>Jotno Doctor Platform</h3>
-    </a>
-    <a class="project-content-item" href="https://org.jotno.net/">
-      <img src="assets/Jotno-doctor.png" alt="nest">
-      <h3>Jotno Patient App</h3>
-    </a>
-    <a class="project-content-item" href="https://www.jotno.net">
-      <img src="assets/Jotno-doctor.png" alt="ts">
-      <h3>Jotno Organization Platform</h3>
-    </a>
+  <h1>Technical Blogs</h1>
 
-    <a class="project-content-item" href="https://admin.vetcare.com.bd/">
-      <img src="assets/vetcare.png" alt="vet">
-      <h3>Vetcare platform</h3>
-    </a>
+  <div class="blogs-content">
+
+    @defer (when !blogLoader) {
+
+        @for (blog of blogs; track blog.guid) {
+          <div class="blog-card">
+            <h2 class="blog-title">{{ blog.title }}</h2>
+            <!--        <p class="blog-description">{{ blog.description }}</p>-->
+            <p class="blog-date">Published on: {{ blog.pubDate | date: 'longDate' }}</p>
+            <p class="blog-date"><b>Author: </b>Faisal Ahmed Ador</p>
+            <a [href]="blog.link" target="_blank" class="read-more">Read More</a>
+          </div>
+        }
+    } @placeholder () {
+      <p>loading...</p>
+    }
+
+
   </div>
+
 </div>
